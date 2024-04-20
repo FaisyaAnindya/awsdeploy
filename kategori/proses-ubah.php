@@ -2,22 +2,17 @@
 if($_POST) {
 
     include "../config/Database.php";
-    include "../object/Petugas.php";
+    include "../object/Kategori.php";
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $petugas = new petugas($db);
+    $kategori = new Kategori($db);
 
-    $petugas->NamaPetugas = $_POST['namapetugas'];
-    $petugas->Alamat = $_POST['alamat'];
-    $petugas->NoTelp = $_POST['notelp'];
-    $petugas->Email = $_POST["email"];
-    $petugas->Password = $_POST["password"];
-    $petugas->Role = $_POST["role"];
-    $petugas->ID = $_POST["id"];
+    $kategori->ID = $_POST["id"];
+    $kategori->NamaKategori = $_POST["namakategori"];
 
-    $petugas->update();
+    $kategori->update();
 }
-header("Location: http://localhost/perpus_app/petugas/index.php");
+header("Location: http://localhost/perpus_app/kategori/index.php");
 ?>
