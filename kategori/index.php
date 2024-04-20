@@ -1,21 +1,21 @@
 <?php
 include '../config/layout.php';
 include '../config/Database.php';
-include '../object/Petugas.php';
+include '../object/Kategori.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
-$petugas = new petugas($db);
+$kategori = new Kategori($db);
 
-// ambil data petugas
-$result = $petugas->readAll();
+// ambil data kategori
+$result = $kategori->readAll();
 $num = $result->rowCount();
 ?>
 
 <div class="p-4 sm:ml-64">
     <div class="p-4 mt-14">
-        <h2 class="text-4xl font-extrabold dark:text-white">Data Petugas</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white">Kategori</h2>
         <a href="form-tambah.php" class="block mt-5 text-white bg-blue-700 hover:bg-
             blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium 
             rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 
@@ -40,26 +40,12 @@ $num = $result->rowCount();
                     No.
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Nama Petugas
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Alamat
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Nomor Telepon
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Password
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Role
+                    Nama Kategori
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Aksi
                 </th>
+
             </tr>
         </thead>
         <?php
@@ -69,26 +55,11 @@ $num = $result->rowCount();
         ?>
         <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <?= $no ?>
                 </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <?= $NamaPetugas ?>
-                </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <?= $Alamat ?>
-                </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <?= $NoTelp ?>
-                </th>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <?= $Email ?>
-                </th>
                 <td class="px-6 py-4">
-                    <?= $Password ?>
-                </td>
-                <td class="px-6 py-4">
-                    <?= $Role ?>
+                    <?= $NamaKategori ?>
                 </td>
                 <td class="px-6 py-4">
                     <div class="inline-flex rounded-md shadow-sm" role="group">
