@@ -1,16 +1,16 @@
 <?php
 if($_GET["ID"]) {
     include "../config/Database.php";
-    include "../object/Petugas.php";
+    include "../object/Kategori.php";
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $petugas = new petugas($db);
-    $petugas->ID = $_GET["ID"];
+    $kategori = new Kategori($db);
+    $kategori->ID = $_GET["ID"];
 
-    $petugas->delete();
+    $kategori->delete();
 }
 
-header("Location: http://localhost/perpus_app/petugas/index.php");
+header("Location: http://localhost/perpus_app/kategori/index.php");
 ?>
