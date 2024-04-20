@@ -1,22 +1,26 @@
 <?php
-if ($_POST) {
-    include '../config/Database.php' ;
-    include '../object/Petugas.php' ;
+
+if($_POST) {
+
+    include "../object/Buku.php";
+    include "../config/Database.php";
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $petugas = new petugas ($db);
+    $buku = new Buku($db);
 
-    $petugas->NamaPetugas = $_POST['namapetugas'];
-    $petugas->Alamat = $_POST['alamat'];
-    $petugas->NoTelp = $_POST['notelp'];
-    $petugas->Email = $_POST['email'];
-    $petugas->Password = $_POST['password'];
-    $petugas->Role = $_POST['role'];
+    $buku->ISBN = $_POST["isbn"];
+    $buku->Judul = $_POST["judul"];
+    $buku->Pengarang = $_POST["pengarang"];
+    $buku->Kategori_ID = $_POST["kategori_id"];
+    $buku->Penerbit_ID = $_POST["penerbit_id"];
+    $buku->Deskripsi = $_POST["deskripsi"];
+    $buku->Stok = $_POST["stok"];
 
-    $petugas->create();
+    $buku->create();
 }
 
-header("Location: http://localhost/perpus_app/petugas/index.php");
+header("Location: http://localhost/perpus_app/buku/index.php");
+
 ?>
